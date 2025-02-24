@@ -1,4 +1,4 @@
-# Task 3: General Dockerization
+# General Dockerization
 
 ![image.png](images/image.png)
 
