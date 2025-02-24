@@ -619,7 +619,7 @@ jobs:
       # Step 4: Build the Docker image
       - name: Build Docker image
         run: |
-          docker build -t ecomsuiteadmin/$DOCKERHUB_REPO:$SERVICE_NAME-${{ inputs.deploy-env }}-latest .
+          docker build -t $DOCKER_USERNAME/$DOCKERHUB_REPO:$SERVICE_NAME-${{ inputs.deploy-env }}-latest .
 
       # Step 5: Push the latest Docker image
       - name: Push Docker image to Docker Hub
