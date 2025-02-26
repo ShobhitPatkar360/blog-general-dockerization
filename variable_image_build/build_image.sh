@@ -8,7 +8,7 @@ git config --global url."https://$GIT_USERNAME:$GIT_TOKEN@github.com".insteadOf 
 
 # ------------FOR SERVICE 1
 # go to project directory
-cd /application/___
+cd /application/$SERVICE1_REPO_NAME
 echo "Trying to pull $SERVICE1_REPO_NAME Repo" >> /tmp/user_data_log
 # pull the latest changes
 git pull
