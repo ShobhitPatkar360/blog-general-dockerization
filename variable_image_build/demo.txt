@@ -1,3 +1,5 @@
+# apply following structure to build the images to the server
+
 |-pull_git_repos.service
   |-make_background_image_startup.sh
     |-clone_repo_hard_code.sh
