@@ -234,6 +234,9 @@ fi
 if [ $num -eq 5 ]; then
 pull_image_custom.sh
 fi
+
+# remove untagged images
+docker image prune -f
 ```
 
 ### delete_image_custom.sh
