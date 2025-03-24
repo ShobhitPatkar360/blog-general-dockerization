@@ -1,29 +1,49 @@
 #!/bin/bash
 
-# assuming no service is running currently and repo as already there
+echo "--------------------------------------------------------------------------------"
+echo "Choose the service, whose latest image you wanted to build - 
+1. $SERVICE1
+2. $SERVICE2
+3. $SERVICE3
+"
+
+read -p "Type the number and press enter... " num;
 
 
-# setting substitution url
-git config --global url."https://$GIT_USERNAME:$GIT_TOKEN@github.com".insteadOf "https://github.com"
 
-# ------------FOR SERVICE 1
-# go to project directory
+if [ $num -eq 1 ]; then
 cd /application/$SERVICE1_REPO_NAME
 echo "Trying to pull $SERVICE1_REPO_NAME Repo" >> /tmp/user_data_log
 # pull the latest changes
 git pull
 # build docker image
-docker build -t "$DOCKERHUB_USER/$DOCKERHUB_REPO:$SERVICE1-$environment-latest" .
+docker build -t "$DOCKERHUB_USER/$DOCKERHUB_REPO:$SERVICE1-$ENVIRONMENT-latest" .
+fi
 
 
-#----------REPEATE FOR SERVICE 2
+
+if [ $num -eq 2 ]; then
+cd /application/$SERVICE2_REPO_NAME
+echo "Trying to pull $SERVICE2_REPO_NAME Repo" >> /tmp/user_data_log
+# pull the latest changes
+git pull
+# build docker image
+docker build -t "$DOCKERHUB_USER/$DOCKERHUB_REPO:$SERVICE2-$ENVIRONMENT-latest" .
+fi
 
 
-#----------REPEATE FOR SERVICE 3
 
 
-# unsetting substitution url
-git config --global --unset url."https://$GIT_USERNAME:$GIT_TOKEN@github.com".insteadof "https://github.com"
+if [ $num -eq 3 ]; then
+cd /application/$SERVICE3_REPO_NAME
+echo "Trying to pull $SERVICE3_REPO_NAME Repo" >> /tmp/user_data_log
+# pull the latest changes
+git pull
+# build docker image
+docker build -t "$DOCKERHUB_USER/$DOCKERHUB_REPO:$SERVICE3-$ENVIRONMENT-latest" .
+fi
+
 
 # remove untagged images
 docker image prune -f
+
