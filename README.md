@@ -516,6 +516,10 @@ while IFS= read -r file; do
 done < "env-file"
 cd -
 
+# removing exited containers and untagged images
+sudo docker rm $(docker ps -aq -f status=exited)
+docker image prune -f
+
 sudo docker volume create log-volume
 run_containers.sh 
 generate_logs.sh 
