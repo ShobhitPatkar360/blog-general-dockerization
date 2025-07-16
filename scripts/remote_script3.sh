@@ -46,5 +46,6 @@ curl -X POST "https://api.github.com/repos/$GITHUB_USER/$SERVICE3_REPO/actions/w
   "ref": "$BRANCH",
   "inputs": {
     "deploy-env": "$ENVIRONMENT"
+  }    
 }
 EOF
