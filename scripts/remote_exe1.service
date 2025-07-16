@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple systemd service to run a script as a root user from remote for deployment
+After=network.target
+
+[Service]
+ExecStart=remote_script1.sh
+Restart=on-failure
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
